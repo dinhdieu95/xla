@@ -1,5 +1,5 @@
 # Dense Vector Representations
-
+# tỉ lệ khớp chuẩn hơn 
 from sentence_transformers import SentenceTransformer, util
 from PIL import Image
 import glob
@@ -56,3 +56,17 @@ for score, image_id1, image_id2 in near_duplicates[0:NUM_SIMILAR_IMAGES]:
     print("\nScore: {:.3f}%".format(score * 100))
     print(image_names[image_id1])
     print(image_names[image_id2])
+
+
+# Set a distance threshold to filter out matches
+DISTANCE_THRESHOLD = 50
+
+# # Display the top unmatching images for each image
+# for i, matches in enumerate(matches_list):
+#     print(f"Top unmatching images for {image_paths[i]}:")
+#     for j, image_match in enumerate(image_paths):
+#         if j != i:  # Skip self-matches
+#             # Check if there is a match with distance above the threshold
+#             is_matching = all(match.distance >= DISTANCE_THRESHOLD for match in matches)
+#             if not is_matching:
+#                 print(f"    - {image_match}")
